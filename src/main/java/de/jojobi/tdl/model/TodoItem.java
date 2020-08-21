@@ -4,7 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import java.util.Date;
+import java.time.LocalDate;
 
 @Entity
 public class TodoItem {
@@ -14,7 +14,7 @@ public class TodoItem {
 
     private String listName;
     private String todo;
-    private Date entryDate;
+    private LocalDate entryDate;
     private Long sequence;
     private Boolean done;
 
@@ -45,11 +45,11 @@ public class TodoItem {
         this.todo = todo;
     }
 
-    public Date getEntryDate() {
+    public LocalDate getEntryDate() {
         return entryDate;
     }
 
-    public void setEntryDate(Date entryDate) {
+    public void setEntryDate(LocalDate entryDate) {
         this.entryDate = entryDate;
     }
 
