@@ -1,6 +1,7 @@
 package de.jojobi.tdl.controller;
 
 import de.jojobi.tdl.model.TodoItem;
+import de.jojobi.tdl.model.dto.AddTodoItemDTO;
 import de.jojobi.tdl.model.dto.TodoItemListDTO;
 import de.jojobi.tdl.service.TodoItemService;
 import org.springframework.http.HttpStatus;
@@ -23,5 +24,12 @@ public class TodoListController {
     @ResponseStatus(HttpStatus.OK)
     public TodoItemListDTO getTodos(@PathVariable String list_name) {
         return new TodoItemListDTO(todoItemService.getTodos(list_name));
+    }
+
+    @PostMapping()
+    @ResponseStatus(HttpStatus.CREATED)
+    public TodoItemListDTO addNewTodo(@RequestBody AddTodoItemDTO itemDTO) {
+        todoItemService.addNewItem(itemDTO);
+        return getTodos(itemDTO.getListName());
     }
 }
