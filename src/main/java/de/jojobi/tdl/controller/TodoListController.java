@@ -12,7 +12,7 @@ import java.util.List;
 @RestController
 @RequestMapping(TodoListController.BASE_URL)
 public class TodoListController {
-    public static final String BASE_URL = "/api/tdl";
+    public static final String BASE_URL = "/api";
 
     private final TodoItemService todoItemService;
 
