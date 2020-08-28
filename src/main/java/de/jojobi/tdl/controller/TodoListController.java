@@ -20,12 +20,14 @@ public class TodoListController {
         this.todoItemService = todoItemService;
     }
 
+    @CrossOrigin
     @GetMapping("{list_name}")
     @ResponseStatus(HttpStatus.OK)
     public TodoItemListDTO getTodos(@PathVariable String list_name) {
         return new TodoItemListDTO(todoItemService.getTodos(list_name));
     }
 
+    @CrossOrigin
     @PostMapping()
     @ResponseStatus(HttpStatus.CREATED)
     public TodoItemListDTO addNewTodo(@RequestBody AddTodoItemDTO itemDTO) {

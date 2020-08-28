@@ -1,5 +1,7 @@
 package de.jojobi.tdl.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -12,8 +14,10 @@ public class TodoItem {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @JsonProperty(value = "list_name")
     private String listName;
-    private String todo;
+    private String text;
+    @JsonProperty(value = "entry_date")
     private LocalDate entryDate;
     private Long sequence;
     private Boolean done;
@@ -37,12 +41,12 @@ public class TodoItem {
         this.listName = listName;
     }
 
-    public String getTodo() {
-        return todo;
+    public String getText() {
+        return text;
     }
 
-    public void setTodo(String todo) {
-        this.todo = todo;
+    public void setText(String text) {
+        this.text = text;
     }
 
     public LocalDate getEntryDate() {
@@ -78,7 +82,7 @@ public class TodoItem {
 
         if (id != null ? !id.equals(todoItem.id) : todoItem.id != null) return false;
         if (listName != null ? !listName.equals(todoItem.listName) : todoItem.listName != null) return false;
-        if (todo != null ? !todo.equals(todoItem.todo) : todoItem.todo != null) return false;
+        if (text != null ? !text.equals(todoItem.text) : todoItem.text != null) return false;
         if (entryDate != null ? !entryDate.equals(todoItem.entryDate) : todoItem.entryDate != null) return false;
         if (sequence != null ? !sequence.equals(todoItem.sequence) : todoItem.sequence != null) return false;
         return done != null ? done.equals(todoItem.done) : todoItem.done == null;
@@ -88,7 +92,7 @@ public class TodoItem {
     public int hashCode() {
         int result = id != null ? id.hashCode() : 0;
         result = 31 * result + (listName != null ? listName.hashCode() : 0);
-        result = 31 * result + (todo != null ? todo.hashCode() : 0);
+        result = 31 * result + (text != null ? text.hashCode() : 0);
         result = 31 * result + (entryDate != null ? entryDate.hashCode() : 0);
         result = 31 * result + (sequence != null ? sequence.hashCode() : 0);
         result = 31 * result + (done != null ? done.hashCode() : 0);
@@ -100,7 +104,7 @@ public class TodoItem {
         return "TodoItem{" +
                 "id=" + id +
                 ", listName='" + listName + '\'' +
-                ", todo='" + todo + '\'' +
+                ", text='" + text + '\'' +
                 ", entryDate=" + entryDate +
                 ", sequence=" + sequence +
                 ", done=" + done +

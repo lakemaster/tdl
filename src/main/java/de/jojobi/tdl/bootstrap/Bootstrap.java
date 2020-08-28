@@ -30,7 +30,7 @@ public class Bootstrap implements CommandLineRunner {
         TodoItem item = new TodoItem();
 
         item.setListName("private");
-        item.setTodo("housekeeping");
+        item.setText("housekeeping");
         item.setDone(false);
         item.setEntryDate(LocalDate.now());
         item.setSequence(1L);
@@ -38,7 +38,7 @@ public class Bootstrap implements CommandLineRunner {
 
         item = new TodoItem();
         item.setListName("private");
-        item.setTodo("mow the lawn");
+        item.setText("mow the lawn");
         item.setDone(false);
         item.setEntryDate(LocalDate.now());
         item.setSequence(2L);
@@ -46,7 +46,7 @@ public class Bootstrap implements CommandLineRunner {
 
         item = new TodoItem();
         item.setListName("private");
-        item.setTodo("repair the car");
+        item.setText("repair the car");
         item.setDone(false);
         item.setEntryDate(LocalDate.now());
         item.setSequence(3L);
@@ -54,7 +54,7 @@ public class Bootstrap implements CommandLineRunner {
 
         item = new TodoItem();
         item.setListName("business");
-        item.setTodo("get practice with react JS");
+        item.setText("get practice with react JS");
         item.setDone(false);
         item.setEntryDate(LocalDate.now());
         item.setSequence(1L);
@@ -62,7 +62,7 @@ public class Bootstrap implements CommandLineRunner {
 
         item = new TodoItem();
         item.setListName("business");
-        item.setTodo("find a new job");
+        item.setText("find a new job");
         item.setDone(false);
         item.setEntryDate(LocalDate.now());
         item.setSequence(2L);

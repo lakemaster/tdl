@@ -28,7 +28,7 @@ public class ToDoItemServiceImpl implements TodoItemService {
     public void addNewItem(AddTodoItemDTO itemDTO) {
         TodoItem todoItem = new TodoItem();
         todoItem.setListName(itemDTO.getListName());
-        todoItem.setTodo(itemDTO.getTodo());
+        todoItem.setText(itemDTO.getTodo());
         todoItem.setSequence(getNextItemSequenceNumber(itemDTO.getListName()));
         todoItem.setDone(Boolean.FALSE);
         todoItem.setEntryDate(LocalDate.now());
