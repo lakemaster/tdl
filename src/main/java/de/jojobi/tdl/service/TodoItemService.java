@@ -9,4 +9,6 @@ public interface TodoItemService {
     List<TodoItem> getTodos(String listName);
 
     void addNewItem(AddTodoItemDTO itemDTO);
+
+    void deleteItem(Long id);
 }

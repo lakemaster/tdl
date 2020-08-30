@@ -21,7 +21,7 @@ public class TodoListController {
     }
 
     @CrossOrigin
-    @GetMapping("{list_name}")
+    @GetMapping("/{list_name}")
     @ResponseStatus(HttpStatus.OK)
     public TodoItemListDTO getTodos(@PathVariable String list_name) {
         return new TodoItemListDTO(todoItemService.getTodos(list_name));
@@ -33,5 +33,21 @@ public class TodoListController {
     public TodoItemListDTO addNewTodo(@RequestBody AddTodoItemDTO itemDTO) {
         todoItemService.addNewItem(itemDTO);
         return getTodos(itemDTO.getListName());
+    }
+
+    @CrossOrigin
+    @PostMapping("/{list_name}")
+    @ResponseStatus(HttpStatus.CREATED)
+    public TodoItemListDTO addNewTodo(@PathVariable("list_name") String listName, @RequestBody AddTodoItemDTO itemDTO) {
+        itemDTO.setListName(listName);
+        return addNewTodo(itemDTO);
+    }
+
+    @CrossOrigin
+    @DeleteMapping("/{list_name}/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public TodoItemListDTO deletesTodo(@PathVariable("list_name") String listName, @PathVariable Long id) {
+        todoItemService.deleteItem(id);
+        return getTodos(listName);
     }
 }

@@ -35,6 +35,12 @@ public class ToDoItemServiceImpl implements TodoItemService {
         todoItemRepo.save(todoItem);
     }
 
+    @Override
+    @Transactional
+    public void deleteItem(Long id) {
+        todoItemRepo.deleteById(id);
+    }
+
     private Long getNextItemSequenceNumber(String listName) {
         List<TodoItem> items = todoItemRepo.findAllByListNameOrderBySequence(listName);
         return items.isEmpty() ? 1L : items.get(items.size()-1).getSequence() + 1;
